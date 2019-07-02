@@ -91,26 +91,26 @@ public class QuickSort {
      */
     private static<T> int partition(T[] array, int low, int high) {
         T pivot = array[high];
-        int lowerIndex = (low - 1); // index of smaller element
+        int i = (low - 1); // index of smaller element
 
-        for (int i = low; i < high; i++) {
+        for (int j = low; j < high; j++) {
             // If current element is smaller than or equal to pivot
-            if (array[i].hashCode() <= pivot.hashCode()) {
-                lowerIndex++;
+            if (array[j].hashCode() <= pivot.hashCode()) {
+                i++;
 
-                // swap array[lowerIndex] and array[i]
-                T temp = array[lowerIndex];
-                array[lowerIndex] = array[i];
-                array[i] = temp;
+                // swap array[i] and array[j]
+                T temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
         }
 
-        // swap array[lowerIndex + 1] and array[high] (or pivot)
-        T temp = array[lowerIndex + 1];
-        array[lowerIndex + 1] = array[high];
+        // swap array[i + 1] and array[high] (or pivot)
+        T temp = array[i + 1];
+        array[i + 1] = array[high];
         array[high] = temp;
 
-        return lowerIndex + 1;
+        return i + 1;
     }
 
     /**
@@ -125,25 +125,25 @@ public class QuickSort {
      */
     private static<T> int partition(List<T> list, int low, int high) {
         T pivot = list.get(high);
-        int lowerIndex = (low - 1); // index of smaller element
+        int i = (low - 1); // index of smaller element
 
-        for (int i = low; i < high; i++) {
+        for (int j = low; j < high; j++) {
             // If current element is smaller than or equal to pivot
-            if (list.get(i).hashCode() <= pivot.hashCode()) {
-                lowerIndex++;
+            if (list.get(j).hashCode() <= pivot.hashCode()) {
+                i++;
 
-                // swap list.get(lowerIndex) and list.get(i)
-                T temp = list.get(lowerIndex);
-                list.set(lowerIndex, list.get(i));
-                list.set(i, temp);
+                // swap list.get(i) and list.get(j)
+                T temp = list.get(i);
+                list.set(i, list.get(j));
+                list.set(j, temp);
             }
         }
 
-        // swap list.get(lowerIndex +_1) and list.get(high) (or pivot)
-        T temp = list.get(lowerIndex + 1);
-        list.set(lowerIndex + 1, list.get(high));
+        // swap list.get(i +_1) and list.get(high) (or pivot)
+        T temp = list.get(i + 1);
+        list.set(i + 1, list.get(high));
         list.set(high, temp);
 
-        return lowerIndex + 1;
+        return i + 1;
     }
 }
